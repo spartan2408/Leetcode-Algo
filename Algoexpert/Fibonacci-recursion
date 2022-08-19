@@ -1,0 +1,23 @@
+def getNthFib(n):
+    # Write your code here.
+    if n == 1:
+        return 0
+    elif n == 2:
+        return 1
+    else:
+        return (getNthFib(n-1) + getNthFib(n-2))
+
+    pass
+
+# also includes using hashmap which reduces complexity to o(n)
+
+
+def getNthFib(n, memooize={1: 0, 2: 1}):
+    # Write your code here.
+    if n in memooize:
+        return memooize[n]
+    else:
+        memooize[n] = getNthFib(n-1, memooize) + getNthFib(n-2, memooize)
+
+    return memooize[n]
+    pass
